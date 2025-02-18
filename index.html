@@ -314,7 +314,7 @@
         </div>
     </div>
 
-    <script>
+        <script>
         const waitlistBtn = document.getElementById('waitlistBtn');
         const waitlistPopup = document.getElementById('waitlistPopup');
         const closePopup = document.getElementById('closePopup');
@@ -356,12 +356,12 @@
             }
 
             // Replace with your Google Apps Script Web App URL
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbxqK72LE1vKj1twQvJiAa9TZsF3FoB6AskVphyn3sXJWhwAhBIk3klEn-DcvKt3GQxo-w/exec'; // **REPLACE THIS!**
+            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; // **REPLACE THIS!**
 
             try {
                 const response = await fetch(scriptURL, {
                     method: 'POST',
-                    mode: 'no-cors', //Important to avoid CORS issues
+                    mode: 'no-cors',
                     redirect: 'follow',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -372,12 +372,13 @@
                     })
                 });
 
-
-                if (response.ok || response.type === 'opaque') { //Handling success response.
+                //Check if the response was successfull
+                if (response.ok || response.type === 'opaque') {
                     alert('Thank you for joining the waitlist!');
                     waitlistPopup.style.display = 'none';
                 } else {
-                    throw new Error('Form submission failed.');
+                    const responseText = await response.text(); //To get the error
+                    throw new Error(`Form submission failed with status: ${response.status} and message: ${responseText}`);
                 }
 
 
@@ -392,6 +393,6 @@
             return emailRegex.test(email);
         }
     </script>
-
+    
 </body>
 </html>
