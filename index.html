@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale: 1.0">
+    <title>Your App Name - Modern MVP Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        header h1 {
+            margin: 0;
+            color: #222;
+        }
+
+        header p {
+            color: #777;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #e9ecef;
+            padding: 80px 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #007bff;
+            border: 2px solid #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: #222;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .feature i {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .feature p {
+            color: #555;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 1em;
+            }
+
+            .features {
+                padding: 40px 20px;
+            }
+        }
+
+        /* Remove the Newsletter specific CSS rules */
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Your App Name</h1>
+            <p>Revolutionizing [Your Industry] with our Innovative Mobile App</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Get Ready to Experience [Your App Name]</h2>
+            <p>Our MVP is coming soon! Join our waitlist to be the first to know and get exclusive early access.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Join the Waitlist</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile-First Design</h3>
+                    <p>Designed with a mobile-first approach, ensuring a seamless and intuitive user experience on all devices.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Lightning-Fast Performance</h3>
+                    <p>Optimized for speed and efficiency, providing quick access to all features and functionalities.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-user-friendly"></i>
+                    <h3>User-Friendly Interface</h3>
+                    <p>An intuitive and easy-to-use interface, making it simple for anyone to navigate and utilize the app's features.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure and Private</h3>
+                    <p>Your data security is our top priority. We utilize advanced encryption and security protocols to protect your information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Your Company. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>
