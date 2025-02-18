@@ -253,7 +253,7 @@
     <header>
         <div class="container">
             <h1>DocBot</h1>
-            <p>Revolutionizing Healthcare with our AI Assitant!</p>
+            <p>Revolutionizing Healthcare with our AI Assistant!</p>
         </div>
     </header>
 
@@ -298,7 +298,7 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 DocBot. All rights reserved.</p>
+            <p>© 2024 DocBot. All rights reserved.</p>
         </div>
     </footer>
 
@@ -308,19 +308,25 @@
             <span class="close-button" id="closePopup">×</span>
             <h2>Join the Waitlist</h2>
             <p>Enter your name and email address to be notified when our MVP is launched!</p>
-            <input type="text" id="fullNameInput" placeholder="Your Full Name" required>
-            <input type="email" id="emailInput" placeholder="Your Email Address" required>
-            <button id="submitEmail">Submit</button>
+            <form name="waitlist" method="POST" data-netlify="true">
+              <input type="hidden" name="form-name" value="waitlist" />
+                <input type="hidden" name="bot-field" />
+                <input type="text" id="fullNameInput" name="fullName" placeholder="Your Full Name" required>
+                <input type="email" id="emailInput" name="email" placeholder="Your Email Address" required>
+                <button type="submit" id="submitEmail">Submit</button>
+            </form>
         </div>
     </div>
 
-        <script>
+    <script>
         const waitlistBtn = document.getElementById('waitlistBtn');
         const waitlistPopup = document.getElementById('waitlistPopup');
         const closePopup = document.getElementById('closePopup');
         const submitEmail = document.getElementById('submitEmail');
         const emailInput = document.getElementById('emailInput');
         const fullNameInput = document.getElementById('fullNameInput');
+        const form = document.querySelector("form[name='waitlist']");
+
 
         waitlistBtn.addEventListener('click', () => {
             waitlistPopup.style.display = 'flex';
@@ -336,63 +342,36 @@
             }
         });
 
-        submitEmail.addEventListener('click', async () => {
-            const email = emailInput.value;
-            const fullName = fullNameInput.value;
+        form.addEventListener("submit", (e) => {
+        const email = emailInput.value;
+        const fullName = fullNameInput.value;
 
-            if (!fullName) {
-                alert('Please enter your full name.');
-                return;
-            }
+        if (!fullName) {
+            alert('Please enter your full name.');
+            e.preventDefault(); //Prevent form from submitting
+            return;
+        }
 
-            if (!email) {
-                alert('Please enter your email address.');
-                return;
-            }
+        if (!email) {
+            alert('Please enter your email address.');
+            e.preventDefault(); //Prevent form from submitting
+            return;
+        }
 
-            if (!isValidEmail(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-
-            // Replace with your Google Apps Script Web App URL
-            const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; // **REPLACE THIS!**
-
-            try {
-                const response = await fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    redirect: 'follow',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams({
-                        "fullName": fullName,
-                        "email": email,
-                    })
-                });
-
-                //Check if the response was successfull
-                if (response.ok || response.type === 'opaque') {
-                    alert('Thank you for joining the waitlist!');
-                    waitlistPopup.style.display = 'none';
-                } else {
-                    const responseText = await response.text(); //To get the error
-                    throw new Error(`Form submission failed with status: ${response.status} and message: ${responseText}`);
-                }
-
-
-            } catch (error) {
-                console.error('Error submitting email:', error);
-                alert('An error occurred while submitting your information. Please try again later.');
-            }
-        });
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address.');
+            e.preventDefault(); //Prevent form from submitting
+            return;
+        }
+        alert('Thank you for joining the waitlist!');
+        waitlistPopup.style.display = 'none';
+      });
 
         function isValidEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
     </script>
-    
+
 </body>
 </html>
